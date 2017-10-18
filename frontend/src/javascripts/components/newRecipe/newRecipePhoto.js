@@ -6,18 +6,16 @@ import FileInput from 'react-file-input';
 
 class RecipePhoto extends Component {
   handleFile = (event) => {
-    
-    // let hasExtension = (exts) => {
-    //   return (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(event.target.files[0].name);
-    // }
-    
+    let hasExtension = (inputID, exts) => {
+      return (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(event.target.files[0].name);
+    }
     const data = new FormData();
     data.append('file', event.target.files[0]);
-    // if (!hasExtension(file, ['.jpg', '.gif', '.png'])) {
-    //   alert("Sorry, " + event.target.files[0].name + " is invalid, allowed extensions are: .jpg, .png, and .gif");
-    // } else {
+    if (!hasExtension(event.target.files[0], ['.jpg', '.gif', '.png'])) {
+      alert("Sorry, " + event.target.files[0].name + " is invalid, allowed extensions are: .jpg, .png, and .gif");
+    } else {
       this.props.uploadPhoto(data);
-    // }
+    }
   }
 
   render() {
@@ -27,7 +25,7 @@ class RecipePhoto extends Component {
           <Image src={ this.props.newPhoto ? 
                         `${host}/files/${this.props.newPhoto}`
                         : recipe}
-                size='medium' className='recipe-photo-img'/>
+                size='medium' wrapped className='recipe-photo-img'/>
         </div>
         <form>
            <FileInput name="myImage"
@@ -41,8 +39,4 @@ class RecipePhoto extends Component {
   }
 }
 
-export default RecipePhoto
-
-/*src={ this.state.avatar != '' ? 
-                        `${AppConfig.host}/files/${this.props.user.avatar}`
-                        : avatar}*/
+export default RecipePhoto;

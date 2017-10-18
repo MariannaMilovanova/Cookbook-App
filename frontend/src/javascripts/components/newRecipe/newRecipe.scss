@@ -47,12 +47,24 @@
     .recipe-photo-wrapper {
         text-align: center;
         .recipe-photo {
-            border: 1px solid #DDDFE2;
             display: inline-block;
             .recipe-photo-img {
-                //width: 298px;
-                max-height: 300px;
-                overflow: hidden;
+                height: 300px;
+                vertical-align: middle;
+                display: inline-block;
+                position: relative;
+                img {
+                    max-height: 100%;  
+                    max-width: 100%; 
+                    width: auto;
+                    height: auto;
+                    position: absolute;  
+                    top: 0;  
+                    bottom: 0;  
+                    left: 0;  
+                    right: 0;  
+                    margin: auto;
+                }
             }
         }
         .recipe-image-input {
