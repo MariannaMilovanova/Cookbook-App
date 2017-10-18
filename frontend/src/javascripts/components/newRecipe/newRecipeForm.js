@@ -31,7 +31,11 @@ class NewRecipeFrom extends Component {
     // this.props.createPost(values, () => {
     //   this.props.history.push('/');
     // });
+    console.log(this.props.newPhoto)
     console.log(values)
+  }
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.newPhoto)
   }
   render(){
     const { handleSubmit } = this.props;

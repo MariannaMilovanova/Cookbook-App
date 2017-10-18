@@ -6,18 +6,20 @@ const recipeSchema = new Schema({
     title: {
         type: String,
         trim: true,
-        required: true,
         default: 'My New Recipe'
     },
     description: { 
         type: String,
         trim: true,
-        required: true
+        default: 'Description of my New Recipe'
+    },
+    photo: {
+        type: String,
+        "trim": true
     },
     ingredients: {
         type: String,
-        trim: true,
-        required: true,
+        trim: true
     },
     directions: {
         type: String,

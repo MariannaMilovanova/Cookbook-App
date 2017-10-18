@@ -15,7 +15,8 @@ app.use(favicon(path.join(__dirname, 'favicon.ico')));
 const cors = require('cors');
 app.use(cors());
 require('./routes/index')(router);
-//app.use('/api', router);
+app.use('/api', router);
+app.use('/files', require('./routes/uploadFiles/uploadRoutes'));
 
 app.use((request, response) => {
     response.sendStatus(404);

@@ -50,6 +50,9 @@
             border: 1px solid #DDDFE2;
             display: inline-block;
             .recipe-photo-img {
+                //width: 298px;
+                max-height: 300px;
+                overflow: hidden;
             }
         }
         .recipe-image-input {
