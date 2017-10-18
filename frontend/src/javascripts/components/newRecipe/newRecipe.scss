@@ -1,0 +1,78 @@
+.new-recipe-wrapper {
+    .recipe-form-header{
+        padding: 3%;
+        font-family: 'Playfair Display', serif;
+        font-size: 35px;
+        text-align: center;
+    }
+    .recipe-form-wrapper{
+        padding: 1% 15% 0;
+        .recipe-form {
+            .recipe-field-label{
+                font-size:20px;
+                padding: 15px 5px;
+            }
+            .recipe-form-input{
+                font-size: 18px;
+            }
+            .recipe-form-textarea {
+                padding: .78571429em 1em;
+                background: #fff;
+                border: 1px solid rgba(34,36,38,.15);
+                outline: 0;
+                color: rgba(0,0,0,.87);
+                border-radius: .28571429rem;
+                box-shadow: 0 0 0 0 transparent inset;
+                width: 100%;
+                font-size: 18px;
+            }
+            .recipe-form-textarea:focus {
+                color: rgba(0,0,0,.95);
+                border-color: #85b7d9;
+                border-radius: .28571429rem;
+                background: #fff;
+                box-shadow: 0 0 0 0 rgba(34,36,38,.35) inset;
+            }
+            .recipe-form-btns-wrapper {
+                padding: 5%;
+                text-align: center;
+                .recipe-form-btn{
+                    margin: 0 5%;
+                    font-size:20px;
+                }
+            }
+        }
+        
+    }
+    .recipe-photo-wrapper {
+        text-align: center;
+        .recipe-photo {
+            border: 1px solid #DDDFE2;
+            display: inline-block;
+            .recipe-photo-img {
+            }
+        }
+        .recipe-image-input {
+            margin-top: 10px;
+            cursor: pointer;
+            display: inline-block;
+            min-height: 1em;
+            outline: 0;
+            border: none;
+            vertical-align: baseline;
+            background: #e0e1e2 none;
+            color: rgba(0,0,0,.6);
+            font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+            padding: 10px;
+            text-transform: none;
+            text-shadow: none;
+            font-weight: 700;
+            line-height: 1em;
+            font-style: normal;
+            text-align: center;
+            text-decoration: none;
+            border-radius: .28571429rem;
+            box-shadow: 0 0 0 1px transparent inset 
+        }
+    }
+}
