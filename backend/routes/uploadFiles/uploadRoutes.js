@@ -1,8 +1,8 @@
 const router = require('express').Router();
-// const recipeRepository = require('../../repositories/recipe/recipeRepository');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+const mkdirp = require('mkdirp');
 
 const storage = multer.diskStorage({
   destination: './files',
@@ -12,6 +12,7 @@ const storage = multer.diskStorage({
     const finalName = `${fileName}-${Date.now()}.${fileType}`;
     req.finalName = finalName;
     
+    mkdirp.sync('./files');
     cb(null, finalName);
   },
 });
@@ -19,13 +20,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.post('/', upload.single('file'), (request, response) => {
-  //const meta = request.body;
-  //const recipeId = `${meta.recipeId}`
   const updatePhoto = { "photo": request.finalName}
-
-    //recipeRepository.update(recipeId, updatePhoto)
-    response.status(200).send(updatePhoto)
-    .catch((error) => response.status(400).send(`Can not add image. ${error}`));
+    try {
+      response.status(200).send(updatePhoto) 
+    } catch (error) {
+      response.status(400).send(`Can not add image. ${error}`)
+    }
 });
 
 router.get('/:path', (request, response) => {

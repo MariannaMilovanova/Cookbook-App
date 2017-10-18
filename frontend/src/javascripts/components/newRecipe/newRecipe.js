@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { uploadPhoto } from './newRecipeActions';
+import { uploadPhoto, addNewRecipe } from './newRecipeActions';
 import NewRecipeForm from './newRecipeForm';
 import NewRecipePhoto from './newRecipePhoto';
 
@@ -14,6 +14,8 @@ const NewRecipe = (props) => {
         />
         <NewRecipeForm 
             newPhoto={props.newPhoto}
+            addNewRecipe={props.addNewRecipe}
+
         />
     </div>
   )
@@ -26,7 +28,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-   uploadPhoto
+   uploadPhoto,
+   addNewRecipe
  }
 
 export default connect(
