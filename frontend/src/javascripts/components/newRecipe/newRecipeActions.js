@@ -8,9 +8,10 @@ export const uploadPhoto = (data) => {
     };
 };
 
-export const addNewRecipe = (data) => {
+export const addNewRecipe = (data, callback) => {
     return {
         type: 'POST_NEW_RECIPE',
-        data
-    };
+        data,
+        callback
+    }
 };

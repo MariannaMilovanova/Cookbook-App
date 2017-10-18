@@ -1,34 +1,56 @@
 .recipes-list-wrapper {
-    padding-top: 200px;
+    padding-top: 170px;
 
     .recipes-list-header{
         text-align: center;         
         .add-recipe{
-            position: absolute;
-            top: 200px;
-            right: 20px;
+            font-size: 25px;
+            color: black;
+            font-family: 'Playfair Display', serif;
+            margin: 2% 0;
         }
     }
     .recipes-list-container {
+        padding: 5%;
+        padding-top: 0;
+        margin: 5%;
+        margin-top: 1%;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
-
         .single-recipe-wrapper {
-            width: 80%;
-            margin: 10px 20px;
-            box-shadow: 0 0 6px rgba(0,0,0,0.5);
-            background: #fff;
-            border-left: 10px solid #DDD;
-            padding: 12px 8px 30px 16px;
+            min-height: 100px;
+            align-self:stretch;
+            display:flex;
+            align-items:center;
+            background-color: #fefff5;
+            margin: 2%;
             position: relative;
-            .receipe-title {
+            max-height: 300px;
+            overflow: hidden;
+            .none {
+                display: none;
+            }
+            .recipe-title {
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0.6);
                 font-size: 25px;
                 padding: 5px;
                 padding-bottom: 15px;
+                position: absolute;
+                bottom:0;
+                width: 100%;
+                text-align: center;
             }
-            .receipe-description {
-                font-size: 18px;
+            .recipe-details {
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0.6);
+                font-size: 25px;
+                line-height: 100px;
+                position: absolute;
+                width: 100%;
+                text-align: center;
             }
         }
     }

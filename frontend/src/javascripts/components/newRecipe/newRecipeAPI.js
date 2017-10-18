@@ -6,9 +6,10 @@ const uploadPhoto = (data) =>
         .then((response) => response.data)
         .catch((error) => error.data);
 
-const postNewRecipe = (data) =>
-    axios.post(host + '/api/recipe', data)
+const postNewRecipe = (action) =>
+    axios.post(host + '/api/recipe', action.data)
         .then((response) => response.data)
+        .then(() => action.callback())
         .catch((error) => error.data);
 
 export {

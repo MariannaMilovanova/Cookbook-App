@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image } from 'semantic-ui-react';
 import { host } from '../../../../config/appConfig';
-import recipe from '../../../images/new-recipe.png';
+//import recipe from '../../../images/new-recipe.png';
 import FileInput from 'react-file-input';
 
 class RecipePhoto extends Component {
@@ -24,7 +24,7 @@ class RecipePhoto extends Component {
         <div className='recipe-photo'>
           <Image src={ this.props.newPhoto ? 
                         `${host}/files/${this.props.newPhoto}`
-                        : recipe}
+                        : '../../../images/new-recipe.png'}
                 size='medium' wrapped className='recipe-photo-img'/>
         </div>
         <form>

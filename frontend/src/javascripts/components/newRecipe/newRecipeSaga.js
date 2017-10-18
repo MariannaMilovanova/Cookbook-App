@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import { uploadPhoto, postNewRecipe } from './newRecipeAPI';
 
 function* uploadRecipePhoto(action) {
@@ -13,7 +13,7 @@ function* uploadRecipePhoto(action) {
 
 function* addRecipe(action) {
     try {
-        const recipe =  yield call(postNewRecipe, action.data);
+        const recipe =  yield call(postNewRecipe, action);
         yield put({ type: "POST_NEW_RECIPE_SUCCESS", recipe: recipe});
     } catch (err) {
         console.log(e);

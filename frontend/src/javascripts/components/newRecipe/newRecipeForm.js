@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Label, TextArea, Input, Button, Container } from 'semantic-ui-react'
-import { Link } from 'react-router';
+import { Label, TextArea, Input, Button, Container } from 'semantic-ui-react';
+import { Link, browserHistory } from 'react-router';
 import './newRecipe.scss'
 
 class NewRecipeFrom extends Component {
@@ -28,13 +28,10 @@ class NewRecipeFrom extends Component {
     )
   }
   onSubmit(values){
-    // this.props.createPost(values, () => {
-    //   this.props.history.push('/');
-    // });
-    
-    let data = Object.assign({}, values, {photo: this.props.newPhoto})
-    console.log(data)
-    this.props.addNewRecipe(data)
+    let data = Object.assign({}, values, {photo: this.props.newPhoto}) 
+    this.props.addNewRecipe(data, () => {
+      browserHistory.push('/');;
+    });
   }
   render(){
     const { handleSubmit } = this.props;

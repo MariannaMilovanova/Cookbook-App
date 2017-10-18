@@ -1,6 +1,5 @@
-let initialState = {
-    newPhoto: null
-}
+let initialState = {}
+
 const newRecipe = (state = initialState, action) => {
      switch (action.type) {
         case 'UPLOAD_PHOTO_SUCCESS' :

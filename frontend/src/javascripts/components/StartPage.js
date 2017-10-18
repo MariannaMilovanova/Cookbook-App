@@ -1,5 +1,5 @@
 import React from 'react';
-import HomePage from './homePage/homeConnect';
+import HomePage from './homePage/homePage';
 
 
 const StartPage = () => (
