@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const recipeRepository = require('../../repositories/​recipe/​recipeRepository');
+const recipeRepository = require('../../repositories/recipe/recipeRepository');
 
 router.get('/', (request, response) => {
     recipeRepository.getAll()
