@@ -1,0 +1,23 @@
+.recipe-details-wrapper {
+    .logo-wrapper
+        .logo {
+                position: absolute;
+                top:10px;
+            }
+    .recipe-details-container {
+        padding: 120px 0% 5%;
+        .recipe-details-header{
+            color: rgba(0,0,0,.8);
+            font-family: 'Playfair Display', serif;
+            font-size: 35px;
+            padding: 10px 10px 25px;
+        }
+        .recipe-details-image {
+            max-width: 450px;
+        }
+        .recipe-details-content {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

@@ -9,36 +9,28 @@ class RecipeRepository extends Repository {
         this.model = Recipe;
     }
 
-    getAll() {
-        return this.model.find();
+    
+    updateRecipe(id, data) {
+        this.model.findById(id)
+        .then((recipe) => {
+            recipe.previousVersion = [];
+            return this.model.findByIdAndUpdate(id,
+                {$push: {"previousVersion": recipe}},
+                {new: true})
+        })
+        return this.model.findOneAndUpdate(
+            {_id: id},
+            { $set: { "title": data.title, 
+                    "description": data.description,
+                    "photo": data.photo,
+                    "ingredients": data.ingredients,
+                    "directions": data.directions,
+                    "lastModified": new Date()
+                    }
+            },
+            {returnNewDocument: true}
+            )
     }
-    add(data) {
-        return new this.model(data).save();
-    }
-
-    // getMaps() {
-    //     return this.model.find();
-    // }
-
-    // addInitialMap() {
-    //     return new this.model({}).save();
-    // }
-
-    // saveMarkers(mapId, markers) {
-    //     return this.model.findByIdAndUpdate(
-    //         mapId,
-    //         { $set: {userMarkers: markers}},
-    //         { new: true }
-    //     );
-    // }
-
-    // addMarkersToMap(markers) {
-    //     return this.model.findByIdAndUpdate(
-    //         baseId,
-    //         {'$push': {tables: tableId}},
-    //         {'new': true}
-    //     );
-    // }
 }
 
 module.exports = new RecipeRepository();

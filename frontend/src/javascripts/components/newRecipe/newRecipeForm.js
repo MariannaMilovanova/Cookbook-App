@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 import { Label, TextArea, Input, Button, Container } from 'semantic-ui-react';
 import { Link, browserHistory } from 'react-router';
 import './newRecipe.scss'
 
-class NewRecipeFrom extends Component {
+class RecipeFormNew extends Component {
   renderField(field){
     const { meta: {touched, error} } = field;
     const className = `${touched && error ? 'has-danger' : ''}`
@@ -28,10 +29,21 @@ class NewRecipeFrom extends Component {
     )
   }
   onSubmit(values){
-    let data = Object.assign({}, values, {photo: this.props.newPhoto}) 
-    this.props.addNewRecipe(data, () => {
-      browserHistory.push('/');;
-    });
+    if (this.props.addNewRecipe) {
+      let data = Object.assign({}, values, {photo: this.props.newPhoto}) 
+      return this.props.addNewRecipe(data, () => {
+        browserHistory.push('/');;
+      });
+    }
+    if (this.props.updateRecipe) {
+      
+      let data = Object.assign({}, values, 
+        {photo: this.props.newPhoto ? this.props.newPhoto : this.props.currentRecipe.photo}) 
+
+      return this.props.updateRecipe(this.props.currentRecipe._id, data, () => {
+        browserHistory.push('/');
+      });
+    }
   }
   render(){
     const { handleSubmit } = this.props;
@@ -92,7 +104,23 @@ function validate(values){
   return errors;
 }
 
-export default reduxForm({
+const mapStateToProps = (state, ownProps) =>{
+  if (ownProps.currentRecipe) {
+      return {
+        initialValues: {
+          title: ownProps.currentRecipe.title,
+          description: ownProps.currentRecipe.description,
+          ingredients: ownProps.currentRecipe.ingredients,
+          directions: ownProps.currentRecipe.directions
+      }
+    }
+  } else {
+    return {}
+  }
+}
+
+let RecipeForm = reduxForm({
   validate,
-  form: "ReceipesNewForm"
-})(NewRecipeFrom)
+  form: "RecipeFormNew"
+}, mapStateToProps)(RecipeFormNew)
+export default (connect(mapStateToProps)(RecipeForm))

@@ -12,8 +12,10 @@ const RecipesList = (props) => {
             <div className = 'recipes-list-header'>
                 <Image centered src={img} size='large'/>
                 <Link to='/recipe'>
-                    <div className='add-recipe'>
-                        + Add new recipe {/*<Image size='small' src={addRecipe}/>*/}
+                    <div className='add-recipe-wrapper'>
+                        <div className='add-recipe'>
+                            + Add new recipe
+                        </div>
                     </div>
                 </Link>
             </div>

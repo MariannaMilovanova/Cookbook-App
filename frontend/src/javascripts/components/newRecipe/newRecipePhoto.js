@@ -11,20 +11,21 @@ class RecipePhoto extends Component {
     }
     const data = new FormData();
     data.append('file', event.target.files[0]);
-    if (!hasExtension(event.target.files[0], ['.jpg', '.gif', '.png'])) {
-      alert("Sorry, " + event.target.files[0].name + " is invalid, allowed extensions are: .jpg, .png, and .gif");
+    if (!hasExtension(event.target.files[0], ['.jpg', '.gif', '.png', '.jpeg'])) {
+      alert("Sorry, " + event.target.files[0].name + " is invalid, allowed extensions are: .jpg, .jpeg,  .png, and .gif");
     } else {
       this.props.uploadPhoto(data);
     }
   }
 
   render() {
+    const { newPhoto, currentRecipe } = this.props;
     return (
       <div className='recipe-photo-wrapper'>
         <div className='recipe-photo'>
-          <Image src={ this.props.newPhoto ? 
-                        `${host}/files/${this.props.newPhoto}`
-                        : `${recipePic}`}
+          <Image src={ newPhoto ? 
+                        `${host}/files/${newPhoto}`
+                        : currentRecipe ? `${host}/files/${currentRecipe.photo}` : `${recipePic}`}
                 size='medium' wrapped className='recipe-photo-img'/>
         </div>
         <form>

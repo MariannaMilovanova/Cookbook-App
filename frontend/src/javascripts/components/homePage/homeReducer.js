@@ -3,7 +3,7 @@ let initialState = {
 }
 const homePageStore = (state = initialState, action) => {
      switch (action.type) {
-        case 'GET_ALL_RECIPES_SUCCESS' :
+        case "GET_ALL_RECIPES_SUCCESS" :
             return {...state, ...{recipes: action.recipes}}
         default:
             return state

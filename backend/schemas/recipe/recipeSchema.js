@@ -30,13 +30,10 @@ const recipeSchema = new Schema({
         type: Date,
         default: Date.now,
     },
+    lastModified: Date,
     previousVersion:[
         //"here will be objects, not IDs"
-    ],
-    new: {
-        type: Boolean,
-        default: true
-    }
+    ]
 }, {versionKey: false});
 
 module.exports = mongoose.model('recipe', recipeSchema);
