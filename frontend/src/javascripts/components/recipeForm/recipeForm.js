@@ -3,7 +3,6 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { Label, TextArea, Input, Button, Container } from 'semantic-ui-react';
 import { Link, browserHistory } from 'react-router';
-import './newRecipe.scss'
 
 class RecipeFormNew extends Component {
   renderField(field){
@@ -32,7 +31,7 @@ class RecipeFormNew extends Component {
     if (this.props.addNewRecipe) {
       let data = Object.assign({}, values, {photo: this.props.newPhoto}) 
       return this.props.addNewRecipe(data, () => {
-        browserHistory.push('/');;
+        browserHistory.push('/');
       });
     }
     if (this.props.updateRecipe) {
@@ -40,9 +39,16 @@ class RecipeFormNew extends Component {
       let data = Object.assign({}, values, 
         {photo: this.props.newPhoto ? this.props.newPhoto : this.props.currentRecipe.photo}) 
 
-      return this.props.updateRecipe(this.props.currentRecipe._id, data, () => {
-        browserHistory.push('/');
-      });
+      return Promise.all([this.props.updateRecipe(this.props.currentRecipe._id, data)])
+        .then(() => this.props.exitModifyMode());
+    }
+  }
+  handleCancel = () => {
+    if (this.props.addNewRecipe) {
+      browserHistory.push('/');
+    }
+    if (this.props.updateRecipe) {
+      this.props.exitModifyMode();
     }
   }
   render(){
@@ -73,9 +79,8 @@ class RecipeFormNew extends Component {
             />
             <div className='recipe-form-btns-wrapper'>
               <Button type='submit' color='blue' className='recipe-form-btn'>Submit</Button>
-              <Link to='/'>
-                <Button type='submit' color='orange' className='recipe-form-btn'>Cancel</Button>
-              </Link>
+              <Button type='submit' color='orange' className='recipe-form-btn'
+                onClick={this.handleCancel}>Cancel</Button>
             </div>
           </form>
         </Container>

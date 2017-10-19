@@ -19,7 +19,7 @@ class RecipeRepository extends Repository {
                 {new: true})
         })
         return this.model.findOneAndUpdate(
-            {_id: id},
+            { _id: id },
             { $set: { "title": data.title, 
                     "description": data.description,
                     "photo": data.photo,
@@ -28,8 +28,9 @@ class RecipeRepository extends Repository {
                     "lastModified": new Date()
                     }
             },
-            {returnNewDocument: true}
-            )
+            { returnNewDocument: true }
+        )
+        .then(() => this.model.findById(id))
     }
 }
 

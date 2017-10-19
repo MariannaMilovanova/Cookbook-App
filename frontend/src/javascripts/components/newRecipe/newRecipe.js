@@ -4,8 +4,9 @@ import { uploadPhoto, addNewRecipe } from './newRecipeActions';
 import { Image } from 'semantic-ui-react';
 import { Link } from 'react-router';
 import logo from './../../../images/cookbook-logo.png';
-import RecipeForm from './newRecipeForm';
-import RecipePhoto from './newRecipePhoto';
+import RecipeForm from '../recipeForm/recipeForm';
+import RecipePhoto from '../recipeForm/recipePhoto';
+import './newRecipe.scss'
 
 const NewRecipe = (props) => {
   return (

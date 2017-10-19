@@ -3,8 +3,8 @@ import NewRecipe from '../newRecipe/newRecipe';
 import { connect } from 'react-redux';
 import { uploadPhoto } from '../newRecipe/newRecipeActions';
 import { updateRecipe } from './recipeActions';
-import RecipePhoto from '../newRecipe/newRecipePhoto';
-import RecipeForm from '../newRecipe/newRecipeForm';
+import RecipePhoto from '../recipeForm/recipePhoto';
+import RecipeForm from '../recipeForm/recipeForm';
 
 const ModifyRecipe = (props) => {
     if(!props.currentRecipe) {
@@ -19,6 +19,7 @@ const ModifyRecipe = (props) => {
                 currentRecipe={props.currentRecipe}
             />
             <RecipeForm 
+                exitModifyMode={props.exitModifyMode}
                 currentRecipe={props.currentRecipe}
                 newPhoto={props.newPhoto}
                 updateRecipe={props.updateRecipe}

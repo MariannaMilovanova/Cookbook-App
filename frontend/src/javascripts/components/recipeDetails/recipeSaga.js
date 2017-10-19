@@ -13,8 +13,8 @@ function* getRecipeById(action) {
 
 function* updateRecipeById(action) {
     try {
-        const recipe =  yield call(updateRecipe, action );
-        yield put({ type: "UPDATE_RECIPE_SUCCESS", recipe: recipe});
+        const recipeUpdated =  yield call(updateRecipe, action);
+        yield put({ type: "UPDATE_RECIPE_SUCCESS", recipe: recipeUpdated});
     } catch (err) {
         console.log(e);
         yield put({ type: "UPDATE_RECIPE_FAILED", message: e.message});
