@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import { Image, Container } from 'semantic-ui-react';
 import { Link } from 'react-router';
 import { host } from '../../../../../config/appConfig';
-// import recipe from '../../../../images/new-recipe.png';
+import recipePic from '../../../../images/new-recipe.png';
 
 class SingleRecipe extends Component {
     constructor(props) {
@@ -25,17 +25,13 @@ class SingleRecipe extends Component {
     render() {
         const { recipe } = this.props;
         return (
-            <div className ='single-recipe-wrapper'
-                onMouseEnter={this.onMouseEnterHandler}
-                onMouseLeave={this.onMouseLeaveHandler}
-            >
-                    <Image src={ recipe.photo ? `${host}/files/${recipe.photo}`: '../../../../images/new-recipe.png'}
-                    size='medium'
-                    />
-                <div className={this.state.hover ? 'none' : 'recipe-title'}>{recipe.title}</div>
-                <div className={this.state.hover ? 'recipe-details' : 'none' }>See Details</div>
-
-            </div>
+            <Link to={`/recipe/${recipe._id}`}
+                    onMouseEnter={this.onMouseEnterHandler}
+                    onMouseLeave={this.onMouseLeaveHandler} 
+                    style={recipe.photo ? {backgroundImage: `url(${host}/files/${recipe.photo})`}:{backgroundImage: `url(${recipePic})`}}>           
+                    <div className={this.state.hover ? 'none' : 'recipe-title'}>{recipe.title}</div>
+                    <div className={this.state.hover ? 'recipe-details' : 'none' }>See Details</div>
+            </Link>
         )
     }
 }
