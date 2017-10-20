@@ -1,5 +1,19 @@
 body {
-    background-color: #FEFCE3 !important;   
+  background-color: #FEFCE3 !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding-bottom: 6rem !important;
+  min-height: 100% !important;
+}
+html {
+  height: 100% !important;
+  box-sizing: border-box !important;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit !important;
 }
 .loading {
     font-size: 55px;

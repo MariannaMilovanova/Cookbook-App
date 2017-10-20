@@ -15,7 +15,6 @@ export const updateRecipe = (id, data) => {
     return {
         type: "UPDATE_RECIPE",
         id,
-        data,
-        //callback
+        data
     }
 };

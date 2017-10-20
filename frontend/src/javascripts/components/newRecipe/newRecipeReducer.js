@@ -6,7 +6,7 @@ const newRecipe = (state = initialState, action) => {
         case "UPLOAD_PHOTO_SUCCESS":
             return {...state, ...{newPhoto: action.photo.photo}}
         case LOCATION_CHANGE:
-            return {...state, ...{newPhoto: ''}}
+            return {...state, ...{newPhoto: null}}
         default:
             return state
     }

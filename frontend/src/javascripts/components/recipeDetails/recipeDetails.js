@@ -45,66 +45,71 @@ class RecipeDetails extends Component {
                     ? <ModifyRecipe currentRecipe={currentRecipe} 
                         exitModifyMode={this.props.exitModifyMode}/>
                     : <Container textAlign='center' className='recipe-details-container'>
-                        <div className='recipe-details-header'>{currentRecipe.title}</div>
-                        <div className='recipe-details-description'>
-                            {currentRecipe.description}
-                        </div>
-                        <div className='recipe-date'>
-                            {`Created: ${new Date(Date.parse(currentRecipe.createdAt)).customFormat( "#MMM# #DD#, #YYYY# #hh#:#mm# #AMPM#" )}`}
-                        </div>
-                        <div className='recipe-details-content-wrapper'>
-                            <div className='recipe-details-image'>
-                                <div className='recipe-image' style={currentRecipe.photo ? 
-                                        {backgroundImage: `url(${host}/files/${currentRecipe.photo})`}
-                                        :{backgroundImage: `url(${recipePic})`}}>
+                        <div className = 'whole-wrapper'> 
+                            <div className='recipe-details-header'>{currentRecipe.title}</div>
+                            <div className='recipe-details-description'>
+                                {currentRecipe.description}
+                            </div>
+                            <div className='recipe-date'>
+                                {`Created: ${new Date(Date.parse(currentRecipe.createdAt)).customFormat( "#MMM# #DD#, #YYYY# #hh#:#mm# #AMPM#" )}`}
+                            </div>
+                            <div className='recipe-details-content-wrapper'>
+                                <div className='recipe-details-image'>
+                                    <div className='recipe-image' style={currentRecipe.photo ? 
+                                            {backgroundImage: `url(${host}/files/${currentRecipe.photo})`}
+                                            :{backgroundImage: `url(${recipePic})`}}>
+                                    </div>
+                                </div>
+                                <div className='recipe-details-content'>
+                                    <div className='recipe-details-preparation'>
+                                        <div className='header'>Ingredients</div>
+                                        <div className='section'>{currentRecipe.ingredients}</div>
+                                    </div>
+                                    <div className='recipe-details-preparation'>
+                                        <div className='header'>Direction</div>
+                                        <div className='section'>{currentRecipe.directions}</div>
+                                    </div>
                                 </div>
                             </div>
-                            <div className='recipe-details-content'>
-                                <div className='recipe-details-preparation'>
-                                    <div className='header'>Ingredients</div>
-                                    <div className='section'>{currentRecipe.ingredients}</div>
-                                </div>
-                                <div className='recipe-details-preparation'>
-                                    <div className='header'>Direction</div>
-                                    <div className='section'>{currentRecipe.directions}</div>
-                                </div>
-                            </div>
-                    </div>
-                    <Button onClick={this.handleClick}>Modify</Button>
-                    <Button onClick={this.handleVersionClick}>See/Hide previous versions</Button>
+                        </div>
+                    <Button onClick={this.handleClick} color='green' >Modify</Button>
+                    <Button onClick={this.handleVersionClick}  color='orange'>See/Hide previous versions</Button>
                     {!this.state.showOtherVersion 
                         ? <div></div>
                         : currentRecipe.previousVersion[0] 
-                        ? currentRecipe.previousVersion.map((version, i) => {
+                        ? currentRecipe.previousVersion.reverse().map((version, i) => {
                             return (
-                                <div key={i}>
-                                <div className='recipe-details-header'>{version.title}</div>
-                                <div className='recipe-details-content'> 
-                                    <div className='recipe-details-image'>
-                                        <Image src={ version.photo ? 
-                                            `${host}/files/${version.photo}`
-                                            : `${recipePic}`}
-                                            size='medium' wrapped
-                                        />
-                                    </div>
-                                    <div className='recipe-details-date'>
-                                        {version.createdAt}
-                                    </div>
+                                <div key={i} className = 'whole-wrapper'>
+                                    <div className='recipe-details-header'>{version.title}</div>
                                     <div className='recipe-details-description'>
                                         {version.description}
                                     </div>
-                                    <div className='recipe-details-ingredients'>
-                                        <div className='ingredients-header'>Ingredients</div>
-                                        <div className='ingredients-section'>{version.ingredients}</div>
+                                        { version.modified 
+                                        ? <div className='recipe-date'>
+                                            {`Modified: ${new Date(Date.parse(version.modified)).customFormat( "#MMM# #DD#, #YYYY# #hh#:#mm# #AMPM#" )}`}</div>
+                                        : <div></div>}
+                                    <div className='recipe-details-content-wrapper'>
+                                        <div className='recipe-details-image'>
+                                            <div className='recipe-image' style={version.photo ? 
+                                                    {backgroundImage: `url(${host}/files/${version.photo})`}
+                                                    :{backgroundImage: `url(${recipePic})`}}>
+                                            </div>
+                                        </div>
+                                        <div className='recipe-details-content'>
+                                            <div className='recipe-details-preparation'>
+                                                <div className='header'>Ingredients</div>
+                                                <div className='section'>{version.ingredients}</div>
+                                            </div>
+                                            <div className='recipe-details-preparation'>
+                                                <div className='header'>Direction</div>
+                                                <div className='section'>{version.directions}</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className='recipe-details-instruction'>
-                                        {version.directions}
-                                    </div>
-                                </div>
                                 </div>
                             )
                         })
-                        : <div>Unfortunately, no previous version were found</div>
+                        : <div className='no-version'>Unfortunately, no previous version were found</div>
                     }
                 </Container>}
                 

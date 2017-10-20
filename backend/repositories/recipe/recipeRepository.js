@@ -8,30 +8,6 @@ class RecipeRepository extends Repository {
         super();
         this.model = Recipe;
     }
-
-    
-    updateRecipe(id, data) {
-        this.model.findById(id)
-        .then((recipe) => {
-            recipe.previousVersion = [];
-            recipe.modified = new Date()
-            return this.model.findByIdAndUpdate(id,
-                {$push: {"previousVersion": recipe}},
-                {new: true})
-        })
-        return this.model.findOneAndUpdate(
-            { _id: id },
-            { $set: { "title": data.title, 
-                    "description": data.description,
-                    "photo": data.photo,
-                    "ingredients": data.ingredients,
-                    "directions": data.directions,
-                    }
-            },
-            { returnNewDocument: true }
-        )
-        .then(() => this.model.findById(id))
-    }
 }
 
 module.exports = new RecipeRepository();

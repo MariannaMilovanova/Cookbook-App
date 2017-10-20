@@ -36,8 +36,13 @@ class RecipeFormNew extends Component {
     }
     if (this.props.updateRecipe) {
       
+      let oldData = {...this.props.currentRecipe};
+      oldData.modified = new Date();
       let data = Object.assign({}, values, 
-        {photo: this.props.newPhoto ? this.props.newPhoto : this.props.currentRecipe.photo}) 
+        {photo: this.props.newPhoto ? this.props.newPhoto : this.props.currentRecipe.photo})
+      data.previousVersion = [...oldData.previousVersion];
+      oldData.previousVersion = [];
+      data.previousVersion.push(oldData)
 
       return Promise.all([this.props.updateRecipe(this.props.currentRecipe._id, data)])
         .then(() => this.props.exitModifyMode());

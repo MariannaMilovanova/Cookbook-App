@@ -17,6 +17,7 @@ const ModifyRecipe = (props) => {
                 uploadPhoto={props.uploadPhoto}
                 newPhoto={props.newPhoto}
                 currentRecipe={props.currentRecipe}
+                exitModifyMode={props.exitModifyMode}
             />
             <RecipeForm 
                 exitModifyMode={props.exitModifyMode}

@@ -23,9 +23,11 @@ class RecipePhoto extends Component {
     return (
       <div className='recipe-photo-wrapper'>
         <div className='recipe-photo'>
-          <Image src={ newPhoto ? 
-                        `${host}/files/${newPhoto}`
-                        : currentRecipe ? `${host}/files/${currentRecipe.photo}` : `${recipePic}`}
+          <Image src={ newPhoto
+                        ? `${host}/files/${newPhoto}`
+                        : this.props.exitModifyMode 
+                        ? currentRecipe.photo ? `${host}/files/${currentRecipe.photo}` :`${recipePic}`
+                        : currentRecipe ? `${host}/files/${currentRecipe.photo}` :`${recipePic}`}
                 size='medium' wrapped className='recipe-photo-img'/>
         </div>
         <form>
