@@ -75,7 +75,10 @@ class RecipeDetails extends Component {
                         </div>
                     <Button onClick={this.handleModifyClick} color='green' >Modify</Button>
                     <Button onClick={this.handleVersionClick}  color='orange'>See/Hide previous versions</Button>
-                    {!this.state.showOtherVersion 
+                    { this.state.showOtherVersion && 
+                        <Header color='brown' as='h2' block>See other verions of {currentRecipe.title}</Header>
+                    }
+                    {!this.state.showOtherVersion
                         ? <div></div>
                         : currentRecipe.previousVersion[0] 
                         ? currentRecipe.previousVersion.map((version, i) => {

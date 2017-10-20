@@ -1,5 +1,6 @@
 import React from 'react';
 import NewRecipe from '../newRecipe/newRecipe';
+import { Header } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { uploadPhoto } from '../newRecipe/newRecipeActions';
 import { updateRecipe } from './recipeActions';
@@ -12,7 +13,7 @@ const ModifyRecipe = (props) => {
     }
     return (
         <div className = "new-recipe-wrapper">
-            <div className='recipe-form-header'>Modify {props.currentRecipe.title}</div>
+            <Header className='modify-header' color='brown' as='h2' textAlign='center'>Here you can modify recipe: {props.currentRecipe.title}</Header>
             <RecipePhoto 
                 uploadPhoto={props.uploadPhoto}
                 newPhoto={props.newPhoto}

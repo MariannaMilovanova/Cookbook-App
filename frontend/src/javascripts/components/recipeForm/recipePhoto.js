@@ -3,6 +3,7 @@ import { Image } from 'semantic-ui-react';
 import { host } from '../../../../config/appConfig';
 import recipePic from '../../../images/new-recipe.png';
 import FileInput from 'react-file-input';
+import './recipeForm.scss';
 
 class RecipePhoto extends Component {
   handleFile = (event) => {

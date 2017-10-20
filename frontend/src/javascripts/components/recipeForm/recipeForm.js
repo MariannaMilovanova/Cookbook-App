@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { Label, TextArea, Input, Button, Container } from 'semantic-ui-react';
 import { Link, browserHistory } from 'react-router';
+import './recipeForm.scss';
 
 class RecipeFormNew extends Component {
   renderField(field){
@@ -34,8 +35,7 @@ class RecipeFormNew extends Component {
         browserHistory.push('/');
       });
     }
-    if (this.props.updateRecipe) {
-      
+    if (this.props.currentRecipe) {
       let oldData = {...this.props.currentRecipe};
       oldData.modified = new Date();
       let data = Object.assign({}, values, 
@@ -82,8 +82,8 @@ class RecipeFormNew extends Component {
               component={this.renderField}
             />
             <div className='recipe-form-btns-wrapper'>
-              <Button type='submit' color='blue' type='button' className='recipe-form-btn'>Submit</Button>
-              <Button type='submit' color='orange' type='button' className='recipe-form-btn'
+              <Button type='submit' color='blue' className='recipe-form-btn'>Submit</Button>
+              <Button color='orange' type='button' className='recipe-form-btn'
                 onClick={this.handleCancel}>Cancel</Button>
             </div>
           </form>
