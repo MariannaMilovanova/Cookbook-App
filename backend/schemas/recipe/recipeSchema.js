@@ -30,7 +30,7 @@ const recipeSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    lastModified: Date,
+    modified: Date,
     previousVersion:[
         //"here will be objects, not IDs"
     ]

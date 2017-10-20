@@ -13,7 +13,7 @@ const NewRecipe = (props) => {
     <div className = "new-recipe-wrapper">
         <Link to='/'>
             <div className='logo'>
-                <Image src={logo} size='small' />
+                <Image src={logo} size='medium' />
             </div>
         </Link>
         <div className='recipe-form-header'>Add Your New Recipe</div>

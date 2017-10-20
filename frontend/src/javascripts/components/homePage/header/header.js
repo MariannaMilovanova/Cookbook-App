@@ -7,7 +7,7 @@ let HomePageHeader = (props) => {
   return (
     <div className ='home-page-header' >
         <div className='home-page-logo'>
-            <Image src={logo} size='small' />
+            <Image src={logo} size='medium' />
         </div>
         <div> Welcome to Cookbook Recipes Site! </div>
     </div>

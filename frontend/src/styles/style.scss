@@ -26,7 +26,31 @@ body {
 }
 
 @media screen and (max-width:400px) {
-    .about-author-body{
-        padding: 0 1% !important;
+        .recipe-details-wrapper {
+            font-size: 14px;
+            .recipe-details-container  {
+                .recipe-details-description {
+                    font-size: 18px !important;
+                }
+                .recipe-date {
+                    top: 50px !important;
+                }
+                .recipe-details-header {
+                    padding-top: 0px !important;
+                    padding-bottom: 45px !important;
+                }
+                .recipe-details-content-wrapper {
+                    flex-direction: column;
+                    align-items: center;
+                    .recipe-details-image {
+                        width: 98% !important;
+                        margin-bottom: 4%;
+                    }
+                    .recipe-details-content {
+                        width: 98% !important;
+                        margin-right: 3%;
+                    }
+                }
+        }
     }
 }

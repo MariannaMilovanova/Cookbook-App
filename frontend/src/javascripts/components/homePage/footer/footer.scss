@@ -1,0 +1,16 @@
+.footer-wrapper{
+    position: relative;
+    //width: 100%;
+    bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    //background-color: rgba(0, 0, 0, 0.1);
+    .footer-creator, .footer-rights{
+        width: 50%;
+        color: rgba(0, 0, 0, 0.7);
+        font-weight: bold;
+        text-align: center;
+        font-size: 18px;
+    }
+    
+}

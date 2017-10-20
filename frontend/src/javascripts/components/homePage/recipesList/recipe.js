@@ -29,6 +29,7 @@ class SingleRecipe extends Component {
                     onMouseEnter={this.onMouseEnterHandler}
                     onMouseLeave={this.onMouseLeaveHandler} 
                     style={recipe.photo ? {backgroundImage: `url(${host}/files/${recipe.photo})`}:{backgroundImage: `url(${recipePic})`}}>           
+                    <div className='recipe-date'>created: {new Date(Date.parse(recipe.createdAt)).customFormat("#MMM# #DD#, #YYYY#")}</div>
                     <div className={this.state.hover ? 'none' : 'recipe-title'}>{recipe.title}</div>
                     <div className={this.state.hover ? 'recipe-details' : 'none' }>See Details</div>
             </Link>

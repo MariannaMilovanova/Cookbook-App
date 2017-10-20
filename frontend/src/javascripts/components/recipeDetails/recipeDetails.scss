@@ -1,23 +1,75 @@
 .recipe-details-wrapper {
-    .logo-wrapper
+    font-size: 16px;
+    a { 
+        display: inline-block;
+        .logo-wrapper
         .logo {
                 position: absolute;
-                top:10px;
+                top:-10px;
+                left:40px;
             }
+    }
     .recipe-details-container {
-        padding: 120px 0% 5%;
+        padding: 10px 0% 5%;
+        position: relative;
         .recipe-details-header{
             color: rgba(0,0,0,.8);
             font-family: 'Playfair Display', serif;
             font-size: 35px;
-            padding: 10px 10px 25px;
+            padding: 10px 10px 35px;
         }
-        .recipe-details-image {
-            max-width: 450px;
+        .recipe-date{
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            display: inline-block;
+            top: 40px;
+            right: 0;
+            padding: 5px;
+            border-radius: 5px 0 0 5px;
+            font-size: 13px;
         }
-        .recipe-details-content {
+        .recipe-details-description{
+            margin-bottom: 20px;
+            font-style: italic;
+            padding: 10px;
+            font-size: 20px;
+        }
+        .recipe-details-content-wrapper {
             display: flex;
-            flex-direction: column;
+             margin-bottom: 40px;
+            .recipe-details-image{
+                width: 40%;
+                .recipe-image {
+                    width: 100%;
+                    max-height: 400px;
+                    min-height: 300px;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                }
+        }
+        .recipe-details-content{
+            width: 60%;
+            margin-left: 10px;
+            .recipe-details-preparation{
+                border: 1px solid #e5e6d0;
+                background-color: #fff;
+                border-radius: 5px;
+                text-align: left;
+                margin-bottom: 5px;
+                .header{
+                    background-image: linear-gradient(to bottom,#e5e6d0 0%,#f0f1e1 100%);
+                    padding: 5px 15px 5px;
+                    overflow: hidden;
+                    text-transform: uppercase;
+                    background-repeat: repeat-x;
+                }
+                .section{
+                    padding: 12px 14px 14px;
+                }
+            }
+        }
         }
     }
 }

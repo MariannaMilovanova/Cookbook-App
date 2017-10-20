@@ -7,7 +7,8 @@ import { host } from '../../../../config/appConfig';
 import ModifyRecipe from './modifyRecipe';
 import recipePic from '../../../images/new-recipe.png';
 import logo from './../../../images/cookbook-logo.png';
-import './recipeDetails.scss'
+import '../date/date';
+import './recipeDetails.scss';
 
 class RecipeDetails extends Component {
     constructor(props) {
@@ -27,7 +28,6 @@ class RecipeDetails extends Component {
     }
     
     render() {
-        console.log(this.state)
         const{ currentRecipe } = this.props;
         if(!currentRecipe ) {
             return <div className='loading'>Loading...</div>
@@ -37,7 +37,7 @@ class RecipeDetails extends Component {
                 <div className='logo-wrapper'>
                     <Link to='/'>
                         <div className='logo'>
-                            <Image src={logo} size='small' />
+                            <Image src={logo} size='medium' />
                         </div>
                     </Link>
                 </div>
@@ -45,60 +45,66 @@ class RecipeDetails extends Component {
                     ? <ModifyRecipe currentRecipe={currentRecipe} 
                         exitModifyMode={this.props.exitModifyMode}/>
                     : <Container textAlign='center' className='recipe-details-container'>
-                    <Button onClick={this.handleClick}>Modify</Button>
-                    <Button onClick={this.handleVersionClick}>See/Hide previous versions</Button>
-                    <div className='recipe-details-header'>{currentRecipe.title}</div>
-                    <div className='recipe-details-content'> 
-                        <div className='recipe-details-image'>
-                            <Image src={ currentRecipe.photo ? 
-                                `${host}/files/${currentRecipe.photo}`
-                                : `${recipePic}`}
-                                size='medium' wrapped
-                            />
-                        </div>
-                        <div className='recipe-details-date'>
-                            {currentRecipe.createdAt}
-                        </div>
+                        <div className='recipe-details-header'>{currentRecipe.title}</div>
                         <div className='recipe-details-description'>
                             {currentRecipe.description}
                         </div>
-                        <div className='recipe-details-ingredients'>
-                            {currentRecipe.ingredients}
+                        <div className='recipe-date'>
+                            {`Created: ${new Date(Date.parse(currentRecipe.createdAt)).customFormat( "#MMM# #DD#, #YYYY# #hh#:#mm# #AMPM#" )}`}
                         </div>
-                        <div className='recipe-details-instruction'>
-                            {currentRecipe.directions}
-                        </div>
+                        <div className='recipe-details-content-wrapper'>
+                            <div className='recipe-details-image'>
+                                <div className='recipe-image' style={currentRecipe.photo ? 
+                                        {backgroundImage: `url(${host}/files/${currentRecipe.photo})`}
+                                        :{backgroundImage: `url(${recipePic})`}}>
+                                </div>
+                            </div>
+                            <div className='recipe-details-content'>
+                                <div className='recipe-details-preparation'>
+                                    <div className='header'>Ingredients</div>
+                                    <div className='section'>{currentRecipe.ingredients}</div>
+                                </div>
+                                <div className='recipe-details-preparation'>
+                                    <div className='header'>Direction</div>
+                                    <div className='section'>{currentRecipe.directions}</div>
+                                </div>
+                            </div>
                     </div>
-                    {this.state.showOtherVersion ?
-                     currentRecipe.previousVersion.map((version, i) => {
-                        return (
-                            <div key={i}>
-                            <div className='recipe-details-header'>{version.title}</div>
-                            <div className='recipe-details-content'> 
-                                <div className='recipe-details-image'>
-                                    <Image src={ version.photo ? 
-                                        `${host}/files/${version.photo}`
-                                        : `${recipePic}`}
-                                        size='medium' wrapped
-                                    />
+                    <Button onClick={this.handleClick}>Modify</Button>
+                    <Button onClick={this.handleVersionClick}>See/Hide previous versions</Button>
+                    {!this.state.showOtherVersion 
+                        ? <div></div>
+                        : currentRecipe.previousVersion[0] 
+                        ? currentRecipe.previousVersion.map((version, i) => {
+                            return (
+                                <div key={i}>
+                                <div className='recipe-details-header'>{version.title}</div>
+                                <div className='recipe-details-content'> 
+                                    <div className='recipe-details-image'>
+                                        <Image src={ version.photo ? 
+                                            `${host}/files/${version.photo}`
+                                            : `${recipePic}`}
+                                            size='medium' wrapped
+                                        />
+                                    </div>
+                                    <div className='recipe-details-date'>
+                                        {version.createdAt}
+                                    </div>
+                                    <div className='recipe-details-description'>
+                                        {version.description}
+                                    </div>
+                                    <div className='recipe-details-ingredients'>
+                                        <div className='ingredients-header'>Ingredients</div>
+                                        <div className='ingredients-section'>{version.ingredients}</div>
+                                    </div>
+                                    <div className='recipe-details-instruction'>
+                                        {version.directions}
+                                    </div>
                                 </div>
-                                <div className='recipe-details-date'>
-                                    {version.createdAt}
                                 </div>
-                                <div className='recipe-details-description'>
-                                    {version.description}
-                                </div>
-                                <div className='recipe-details-ingredients'>
-                                    {version.ingredients}
-                                </div>
-                                <div className='recipe-details-instruction'>
-                                    {version.directions}
-                                </div>
-                            </div>
-                            </div>
-                        )
-                     })
-                    : <div>Unfortunately, no previous version were found</div>
+                            )
+                        })
+                        : <div>Unfortunately, no previous version were found</div>
                     }
                 </Container>}
                 

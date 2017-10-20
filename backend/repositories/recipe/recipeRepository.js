@@ -14,6 +14,7 @@ class RecipeRepository extends Repository {
         this.model.findById(id)
         .then((recipe) => {
             recipe.previousVersion = [];
+            recipe.modified = new Date()
             return this.model.findByIdAndUpdate(id,
                 {$push: {"previousVersion": recipe}},
                 {new: true})
@@ -25,7 +26,6 @@ class RecipeRepository extends Repository {
                     "photo": data.photo,
                     "ingredients": data.ingredients,
                     "directions": data.directions,
-                    "lastModified": new Date()
                     }
             },
             { returnNewDocument: true }
