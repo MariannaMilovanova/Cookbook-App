@@ -9,7 +9,6 @@ const getRecipe = (id) =>
 const updateRecipe = (action) =>
     axios.put(host + '/api/recipe/' + action.id, action.data)
         .then((response) => response.data)
-        //.then(() => action.callback())
         .catch((error) => error.data);
 
 export {

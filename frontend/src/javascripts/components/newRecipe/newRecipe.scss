@@ -1,13 +1,14 @@
 .new-recipe-wrapper {
-   a { 
+    padding-top: 50px;
+   .logo-wrapper
+        a { 
         display: inline-block;
-        .logo-wrapper
-        .logo {
+            .logo {
                 position: absolute;
                 top:-10px;
                 left:40px;
             }
-    }
+        }
     .recipe-form-header{
         padding: 3%;
         font-family: 'Playfair Display', serif;

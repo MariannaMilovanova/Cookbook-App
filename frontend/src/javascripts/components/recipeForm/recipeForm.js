@@ -51,8 +51,7 @@ class RecipeFormNew extends Component {
   handleCancel = () => {
     if (this.props.addNewRecipe) {
       browserHistory.push('/');
-    }
-    if (this.props.updateRecipe) {
+    } else {
       this.props.exitModifyMode();
     }
   }
@@ -83,8 +82,8 @@ class RecipeFormNew extends Component {
               component={this.renderField}
             />
             <div className='recipe-form-btns-wrapper'>
-              <Button type='submit' color='blue' className='recipe-form-btn'>Submit</Button>
-              <Button type='submit' color='orange' className='recipe-form-btn'
+              <Button type='submit' color='blue' type='button' className='recipe-form-btn'>Submit</Button>
+              <Button type='submit' color='orange' type='button' className='recipe-form-btn'
                 onClick={this.handleCancel}>Cancel</Button>
             </div>
           </form>

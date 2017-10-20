@@ -20,7 +20,8 @@ class RecipeDetails extends Component {
     componentDidMount() {
         this.props.fetchRecipe(this.props.params.id);
     }
-    handleClick = () => {
+    handleModifyClick = () => {
+        // this.setState({showOtherVersion: false})
         this.props.exitModifyMode();
     }
     handleVersionClick = () => {
@@ -72,12 +73,12 @@ class RecipeDetails extends Component {
                                 </div>
                             </div>
                         </div>
-                    <Button onClick={this.handleClick} color='green' >Modify</Button>
+                    <Button onClick={this.handleModifyClick} color='green' >Modify</Button>
                     <Button onClick={this.handleVersionClick}  color='orange'>See/Hide previous versions</Button>
                     {!this.state.showOtherVersion 
                         ? <div></div>
                         : currentRecipe.previousVersion[0] 
-                        ? currentRecipe.previousVersion.reverse().map((version, i) => {
+                        ? currentRecipe.previousVersion.map((version, i) => {
                             return (
                                 <div key={i} className = 'whole-wrapper'>
                                     <div className='recipe-details-header'>{version.title}</div>

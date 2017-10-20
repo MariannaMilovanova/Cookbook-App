@@ -11,11 +11,13 @@ import './newRecipe.scss'
 const NewRecipe = (props) => {
   return (
     <div className = "new-recipe-wrapper">
-        <Link to='/'>
-            <div className='logo'>
-                <Image src={logo} size='medium' />
-            </div>
-        </Link>
+        <div className='logo-wrapper'>
+            <Link to='/'>
+                <div className='logo'>
+                    <Image src={logo} size='medium' />
+                </div>
+            </Link>
+        </div>
         <div className='recipe-form-header'>Add Your New Recipe</div>
         <RecipePhoto 
             uploadPhoto={props.uploadPhoto}

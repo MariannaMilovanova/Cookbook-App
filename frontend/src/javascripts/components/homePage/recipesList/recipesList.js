@@ -11,13 +11,13 @@ const RecipesList = (props) => {
         <div className = 'recipes-list-wrapper'>
             <div className = 'recipes-list-header'>
                 <Image centered src={img} size='large'/>
-                <Link to='/recipe'>
-                    <div className='add-recipe-wrapper'>
+                <div className='add-recipe-wrapper'>
+                    <Link to='/recipe'>
                         <div className='add-recipe'>
                             + Add new recipe
                         </div>
-                    </div>
-                </Link>
+                    </Link>
+                </div>
             </div>
             <div className = 'recipes-list-container'>
                 {recipes.map((recipe, i)  => {
