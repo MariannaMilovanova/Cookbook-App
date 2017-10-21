@@ -6,8 +6,8 @@ function* getAllRecipes() {
         const recipes =  yield call(getRecipes);
         yield put({ type: "GET_ALL_RECIPES_SUCCESS", recipes: recipes});
     } catch (err) {
-        console.log(e);
-        yield put({ type: "GET_ALL_RECIPESE_FAILED", message: e.message});
+        console.log(err);
+        yield put({ type: "GET_ALL_RECIPESE_FAILED", message: err.message});
     }
 }
 

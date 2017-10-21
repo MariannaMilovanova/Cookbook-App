@@ -1,9 +1,9 @@
 import React from 'react';
 import { Image } from 'semantic-ui-react';
 import logo from './../../../../images/cookbook-logo.png';
-import './header.scss'
+import './header.scss';
 
-let HomePageHeader = (props) => {
+let HomePageHeader = () => {
   return (
     <div className ='home-page-header' >
         <div className='home-page-logo'>
@@ -11,7 +11,6 @@ let HomePageHeader = (props) => {
         </div>
         <div className ='home-page-welcome'> Welcome to Cookbook Recipes Site! </div>
     </div>
-  )
-}
-
-export default HomePageHeader
+  );
+};
+export default HomePageHeader;

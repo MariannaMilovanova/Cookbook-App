@@ -21,13 +21,12 @@ class RecipeDetails extends Component {
         this.props.fetchRecipe(this.props.params.id);
     }
     handleModifyClick = () => {
-        // this.setState({showOtherVersion: false})
         this.props.exitModifyMode();
-    }
+    };
     handleVersionClick = () => {
         this.setState({showOtherVersion: !this.state.showOtherVersion})
-    }
-    
+    };
+
     render() {
         const{ currentRecipe } = this.props;
         if(!currentRecipe ) {
@@ -130,12 +129,12 @@ const mapStateToProps = (state) => {
         currentRecipe: state.recipeDetails.currentRecipe,
         modifyMode: state.recipeDetails.modifyMode
     })
-}
+};
 
 const mapDispatchToProps = {
     fetchRecipe,
     exitModifyMode 
- }
+ };
 
 export default connect(
     mapStateToProps,

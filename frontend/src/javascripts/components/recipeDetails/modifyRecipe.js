@@ -1,5 +1,5 @@
 import React from 'react';
-import NewRecipe from '../newRecipe/newRecipe';
+import PropTypes from 'prop-types';
 import { Header } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { uploadPhoto } from '../newRecipe/newRecipeActions';
@@ -27,19 +27,27 @@ const ModifyRecipe = (props) => {
                 updateRecipe={props.updateRecipe}
             />
         </div>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state) => {
     return ({
         newPhoto: state.newRecipe.newPhoto
-    })
-}
+    });
+};
 
 const mapDispatchToProps = {
    uploadPhoto,
    updateRecipe
-}
+};
+
+ModifyRecipe.propTypes = {
+    uploadPhoto: PropTypes.func.isRequired,
+    updateRecipe: PropTypes.func.isRequired,
+    exitModifyMode: PropTypes.func.isRequired,
+    newPhoto: PropTypes.string,
+    currentRecipe: PropTypes.object
+};
 
 export default connect(
     mapStateToProps,

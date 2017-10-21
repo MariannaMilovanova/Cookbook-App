@@ -5,7 +5,6 @@ import newRecipe from '../components/newRecipe/newRecipeReducer';
 import recipeDetails from '../components/recipeDetails/recipeReducer';
 import { reducer as formReducer } from 'redux-form';
 
-
 export default combineReducers({
     routing,
     homePageStore,

@@ -6,8 +6,8 @@ function* getRecipeById(action) {
         const recipe =  yield call(getRecipe, action.id);
         yield put({ type: "FETCH_RECIPE_SUCCESS", recipe: recipe});
     } catch (err) {
-        console.log(e);
-        yield put({ type: "FETCH_RECIPE_FAILED", message: e.message});
+        console.log(err);
+        yield put({ type: "FETCH_RECIPE_FAILED", message: err.message});
     }
 }
 
@@ -16,8 +16,8 @@ function* updateRecipeById(action) {
         const recipeUpdated =  yield call(updateRecipe, action);
         yield put({ type: "UPDATE_RECIPE_SUCCESS", recipe: recipeUpdated});
     } catch (err) {
-        console.log(e);
-        yield put({ type: "UPDATE_RECIPE_FAILED", message: e.message});
+        console.log(err);
+        yield put({ type: "UPDATE_RECIPE_FAILED", message: err.message});
     }
 }
 

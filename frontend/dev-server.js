@@ -41,6 +41,5 @@ app.listen(port, host, (err) => {
         log(err);
         return;
     }
-
     log('🚧  App is listening at http://%s:%s', host, port);
 });

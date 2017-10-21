@@ -15,12 +15,12 @@ class SingleRecipe extends Component {
         this.setState({
             hover: true
         })
-    }
+    };
     onMouseLeaveHandler = () =>{
         this.setState({
             hover: false
         })
-    }
+    };
 
     render() {
         const { recipe } = this.props;
