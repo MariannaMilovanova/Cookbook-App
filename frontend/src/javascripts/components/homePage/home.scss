@@ -1,5 +1,9 @@
 .home-page-wrapper {
-  box-sizing:border-box;
-  background-color: #FEFCE3;
-  height: 1000px;
+    box-sizing:border-box;
+    background-color: #FEFCE3;
+    min-height: 100%;
+    position: absolute;
+    min-width: 100%;
+    margin: 0;
+    padding-bottom: 1rem;
 }

@@ -1,18 +1,19 @@
 .home-page-header {
-    padding: 45px 0;
-    position: fixed;
+    padding: 40px;
+    position: relative;
     color: rgba(0,0,0,.8);
     font-family: 'Playfair Display', serif;
     font-size: 35px;
     top: 0;
     width:100%;
-    height: 120px;
+    height: 100px;
     text-align: center;
     z-index: 2;
-    background-image: url('../../../../images/background-header.jpg');
+    background-image: url('../../../../images/header.png');
+    background-position: center;
     .home-page-logo {
         position: absolute;
-        top:10px;
+        top:-10px;
     }
 
   }
