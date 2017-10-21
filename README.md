@@ -4,19 +4,18 @@
 Create app with using React, Redux, Node.js, Express, MongoDB
 
 How to install:
-
-git clone https://github.com/MariannaMilovanova/Simple-Map-with-Markers.git
-open 3 console
-in one console start MongoDB:
-mongod
-in second console:
-cd Simple-Map-with-Markers/backend
-npm i
-npm start
-in third console:
-cd Simple-Map-with-Markers/frontend
-npm i
-npm start
-go to http://localhost:3000/
+1) git clone https://github.com/MariannaMilovanova/Cookbook-App.git
+2) open 3 console
+3) in one console start MongoDB: 
+  - mongod
+4) in second console: 
+  - cd Cookbook-App/backend
+  - npm i
+  - npm start
+5) in third console:
+  - cd Cookbook-App/frontend
+  - npm i
+  - npm start
+6) go to http://localhost:5000/
 
 ![app sreenshots](https://github.com/MariannaMilovanova/Cookbook-App/blob/dev/frontend/src/images/screenshots.png)
