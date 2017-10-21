@@ -1,7 +1,7 @@
 # Cookbook-App
 ​Cookbook​ ​JavaScript​ ​application. You can organise your favourite recipes in one place.
 
-Create app with using React, Redux, Node.js, Express, MongoDB
+Create app using React, Redux, Node.js, Express, MongoDB
 
 How to install:
 1) git clone https://github.com/MariannaMilovanova/Cookbook-App.git
