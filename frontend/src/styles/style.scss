@@ -40,18 +40,61 @@ html {
 }
 
 @media screen and (max-width:400px) {
+        .home-page-header {
+            font-size: 25px !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            height: 130px !important;
+            .home-page-welcome{
+                padding-top: 15px;
+                line-height: 30px;
+            }
+        }
+        .recipe-photo-wrapper .recipe-photo .recipe-photo-img {
+                height: 250px !important;
+        }
+        .recipe-form-header {
+            font-size: 27px !important;
+            margin-top: 15px !important;
+        }
+        .recipes-list-wrapper {
+            padding-top: 20px !important;
+            margin-bottom: 25px !important;
+        }
+        .recipe-form-wrapper {
+            padding: 1% 3% 0 !important;
+            .recipe-form {
+                .recipe-field-label {
+                    font-size: 18px !important;
+                    padding: 11px 5px !important;
+                }
+                .recipe-form-btns-wrapper .recipe-form-btn {
+                    font-size: 15px !important;
+                }
+            }
+        }
+        .home-page-wrapper {
+            .ui.large.image {
+                width: 300px !important;
+            }
+        }
+        .ui.medium.image{
+            width: 200px !important;
+        }
+        .footer-creator, .footer-rights {
+            font-size: 12px !important;
+        }
         .recipe-details-wrapper {
             font-size: 14px;
             .recipe-details-container  {
+                padding: 80px 0% 5% !important;
                 .recipe-details-description {
                     font-size: 18px !important;
-                }
-                .recipe-date {
-                    top: 50px !important;
                 }
                 .recipe-details-header {
                     padding-top: 0px !important;
                     padding-bottom: 45px !important;
+                    font-size: 30px !important;
                 }
                 .recipe-details-content-wrapper {
                     flex-direction: column;
