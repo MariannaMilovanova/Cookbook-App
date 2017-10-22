@@ -3,6 +3,8 @@
 
 Create app using React, Redux, Node.js, Express, MongoDB
 
+![app sreenshots](https://github.com/MariannaMilovanova/Cookbook-App/blob/dev/frontend/src/images/screenshots.png)
+
 How to install:
 1) git clone https://github.com/MariannaMilovanova/Cookbook-App.git
 2) open 3 console
@@ -17,5 +19,3 @@ How to install:
   - npm i
   - npm start
 6) go to http://localhost:5000/
-
-![app sreenshots](https://github.com/MariannaMilovanova/Cookbook-App/blob/dev/frontend/src/images/screenshots.png)
