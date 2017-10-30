@@ -1,0 +1,245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match its snapshot with recipe items 1`] = `
+<RecipesList
+  recipes={
+    Array [
+      Object {
+        "_id": "59f2e587eaa9e416903e2e45",
+        "createdAt": 2017-11-01T22:00:00.000Z,
+        "description": "mmmm",
+        "directions": "yummy",
+        "ingredients": "yunmmy",
+        "photo": "beef-ragu-88066-1-1509090682343.jpeg",
+        "previousVersion": Array [],
+        "title": "Beef Ragu",
+      },
+      Object {
+        "_id": "59f6ef03eaa9e416903e2e46",
+        "createdAt": 2016-11-01T22:00:00.000Z,
+        "description": "Chicken",
+        "directions": "Lorum Ipsum",
+        "ingredients": "Lorum Ipsum",
+        "photo": "detail-1509355229104.png",
+        "previousVersion": Array [],
+        "title": "Chicken Ragu",
+      },
+    ]
+  }
+>
+  <div
+    className="recipes-list-wrapper"
+  >
+    <div
+      className="recipes-list-header"
+    >
+      <Image
+        as="img"
+        centered={true}
+        size="large"
+        src="test-file-stub"
+        ui={true}
+      >
+        <img
+          alt={undefined}
+          className="ui large centered image"
+          height={undefined}
+          src="test-file-stub"
+          width={undefined}
+        />
+      </Image>
+      <div
+        className="add-recipe-wrapper"
+      >
+        <Link
+          onlyActiveOnIndex={false}
+          style={Object {}}
+          to="/recipe"
+        >
+          <a
+            onClick={[Function]}
+            style={Object {}}
+          >
+            <div
+              className="add-recipe"
+            >
+              + Add new recipe
+            </div>
+          </a>
+        </Link>
+      </div>
+    </div>
+    <div
+      className="recipes-list-container"
+    >
+      <SingleRecipe
+        key="59f2e587eaa9e416903e2e45"
+        recipe={
+          Object {
+            "_id": "59f2e587eaa9e416903e2e45",
+            "createdAt": 2017-11-01T22:00:00.000Z,
+            "description": "mmmm",
+            "directions": "yummy",
+            "ingredients": "yunmmy",
+            "photo": "beef-ragu-88066-1-1509090682343.jpeg",
+            "previousVersion": Array [],
+            "title": "Beef Ragu",
+          }
+        }
+      >
+        <Link
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onlyActiveOnIndex={false}
+          style={
+            Object {
+              "backgroundImage": "url(http://localhost:2020/files/beef-ragu-88066-1-1509090682343.jpeg)",
+            }
+          }
+          to="/recipe/59f2e587eaa9e416903e2e45"
+        >
+          <a
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            style={
+              Object {
+                "backgroundImage": "url(http://localhost:2020/files/beef-ragu-88066-1-1509090682343.jpeg)",
+              }
+            }
+          >
+            <div
+              className="recipe-date"
+            >
+              created: 
+              Nov 02, 2017
+            </div>
+            <div
+              className="recipe-title"
+            >
+              Beef Ragu
+            </div>
+            <div
+              className="none"
+            >
+              See Details
+            </div>
+          </a>
+        </Link>
+      </SingleRecipe>
+      <SingleRecipe
+        key="59f6ef03eaa9e416903e2e46"
+        recipe={
+          Object {
+            "_id": "59f6ef03eaa9e416903e2e46",
+            "createdAt": 2016-11-01T22:00:00.000Z,
+            "description": "Chicken",
+            "directions": "Lorum Ipsum",
+            "ingredients": "Lorum Ipsum",
+            "photo": "detail-1509355229104.png",
+            "previousVersion": Array [],
+            "title": "Chicken Ragu",
+          }
+        }
+      >
+        <Link
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onlyActiveOnIndex={false}
+          style={
+            Object {
+              "backgroundImage": "url(http://localhost:2020/files/detail-1509355229104.png)",
+            }
+          }
+          to="/recipe/59f6ef03eaa9e416903e2e46"
+        >
+          <a
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            style={
+              Object {
+                "backgroundImage": "url(http://localhost:2020/files/detail-1509355229104.png)",
+              }
+            }
+          >
+            <div
+              className="recipe-date"
+            >
+              created: 
+              Nov 02, 2016
+            </div>
+            <div
+              className="recipe-title"
+            >
+              Chicken Ragu
+            </div>
+            <div
+              className="none"
+            >
+              See Details
+            </div>
+          </a>
+        </Link>
+      </SingleRecipe>
+    </div>
+  </div>
+</RecipesList>
+`;
+
+exports[`single recipe should change onMouseEnter/onMouseLeave 1`] = `
+<SingleRecipe
+  recipe={
+    Object {
+      "_id": "59f2e587eaa9e416903e2e45",
+      "createdAt": 2017-11-01T22:00:00.000Z,
+      "description": "mmmm",
+      "directions": "yummy",
+      "ingredients": "yunmmy",
+      "photo": "beef-ragu-88066-1-1509090682343.jpeg",
+      "previousVersion": Array [],
+      "title": "Beef Ragu",
+    }
+  }
+>
+  <Link
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onlyActiveOnIndex={false}
+    style={
+      Object {
+        "backgroundImage": "url(http://localhost:2020/files/beef-ragu-88066-1-1509090682343.jpeg)",
+      }
+    }
+    to="/recipe/59f2e587eaa9e416903e2e45"
+  >
+    <a
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={
+        Object {
+          "backgroundImage": "url(http://localhost:2020/files/beef-ragu-88066-1-1509090682343.jpeg)",
+        }
+      }
+    >
+      <div
+        className="recipe-date"
+      >
+        created: 
+        Nov 02, 2017
+      </div>
+      <div
+        className="recipe-title"
+      >
+        Beef Ragu
+      </div>
+      <div
+        className="none"
+      >
+        See Details
+      </div>
+    </a>
+  </Link>
+</SingleRecipe>
+`;
