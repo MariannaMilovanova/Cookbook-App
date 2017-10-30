@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import { Image, Container } from 'semantic-ui-react';
 import { Link } from 'react-router';
 import { host } from '../../../../../config/appConfig';
+import '../../date/date';
 import recipePic from '../../../../images/new-recipe.png';
 
 class SingleRecipe extends Component {
